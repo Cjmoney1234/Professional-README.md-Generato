@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 inquirer.registerPrompt("loop", require("inquirer-loop")(inquirer));
 const fs = require('fs');
 
-const questions = require('./questions');
+const questions = require('./template/questions');
 
 const Manager = require('./positions/manager');
 const Engineer = require('./positions/engineer');
