@@ -3,7 +3,7 @@ function generateManagerCard (manager) {
     `<div class="card-container">
         <div class="card-title-container">
             <h2 class="name">${manager.name}</h2>
-            <h4 class="type">Manager</h4>
+            <h4 class="type"><i class="fa-solid fa-mug-hot"></i> Manager</h4>
         </div>
         <div class="card-body">
             <div class="content-body">
@@ -24,7 +24,7 @@ function generateEngineerCards (engineers) {
         `<div class="card-container">
             <div class="card-title-container">
                 <h2 class="name">${engineer.name}</h2>
-                <h4 class="type">Engineer</h4>
+                <h4 class="type"><i class="fa-solid fa-laptop-code"></i> Engineer</h4>
             </div>
             <div class="card-body">
                 <div class="content-body">
@@ -48,7 +48,7 @@ function generateInternCards (interns) {
         `<div class="card-container">
             <div class="card-title-container">
                 <h2 class="name">${intern.name}</h2>
-                <h4 class="type">Intern</h4>
+                <h4 class="type"><i class="fa-solid fa-user-graduate"></i> Intern</h4>
             </div>
             <div class="card-body">
                 <div class="content-body">
