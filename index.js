@@ -23,7 +23,7 @@ inquirer.prompt(questions)
       if (newEmployee.type === "Engineer") {
           const engineer = new Engineer(newEmployee.name, newEmployee.id, newEmployee.email, newEmployee.github)
           engineers.push(engineer)
-      } else if (e.type === "Intern") {
+      } else if (newEmployee.type === "Intern") {
           const intern = new Intern(newEmployee.name, newEmployee.id, newEmployee.email, newEmployee.school)
           interns.push(intern)
       }
