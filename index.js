@@ -2,14 +2,14 @@ const inquirer = require('inquirer');
 inquirer.registerPrompt("loop", require("inquirer-loop")(inquirer));
 const fs = require('fs');
 
-const questions = require('./template/questions');
+const questions = require('./questions');
 
 const Manager = require('./positions/manager');
 const Engineer = require('./positions/engineer');
 const Intern = require('./positions/intern');
 
-const { addManager, addEngineer, addIntern } = require("./template/cards");
-const generateHtml = require('./template/html');
+const { generateManagerCard, generateEngineerCards, generateInternCards } = require("./template/cards");
+const generateHtml = require('./template/html')
 
 inquirer.prompt(questions)
 .then((answers) => {
@@ -23,16 +23,16 @@ inquirer.prompt(questions)
       if (newEmployee.type === "Engineer") {
           const engineer = new Engineer(newEmployee.name, newEmployee.id, newEmployee.email, newEmployee.github)
           engineers.push(engineer)
-      } else if (newEmployee.type === "Intern") {
+      } else if (e.type === "Intern") {
           const intern = new Intern(newEmployee.name, newEmployee.id, newEmployee.email, newEmployee.school)
           interns.push(intern)
       }
   }
 
-  const generateManager = addManager(manager);
-  const generateEngineer = addEngineer(engineers);
-  const generateIntern = addIntern(interns);
-  const htmlGenerator = generateHtml(generateManager, generateEngineer, generateIntern);
+  const managerCard = generateManagerCard(manager);
+  const engineerCards = generateEngineerCards(engineers);
+  const internCards = generateInternCards(interns);
+  const htmlGenerator = generateHtml(managerCard, engineerCards, internCards);
 
 
   fs.writeFile('index.html', htmlGenerator, (err) =>
