@@ -8,8 +8,8 @@ const Manager = require('./positions/manager');
 const Engineer = require('./positions/engineer');
 const Intern = require('./positions/intern');
 
-const { generateManagerCard, generateEngineerCards, generateInternCards } = require("./template/cards");
-const generateHtml = require('./template/html')
+const { addManager, addEngineer, addIntern } = require("./template/cards");
+const generateHtml = require('./template/html');
 
 inquirer.prompt(questions)
 .then((answers) => {
@@ -29,10 +29,10 @@ inquirer.prompt(questions)
       }
   }
 
-  const managerCard = generateManagerCard(manager);
-  const engineerCards = generateEngineerCards(engineers);
-  const internCards = generateInternCards(interns);
-  const htmlGenerator = generateHtml(managerCard, engineerCards, internCards);
+  const generateManager = addManager(manager);
+  const generateEngineer = addEngineer(engineers);
+  const generateIntern = addIntern(interns);
+  const htmlGenerator = generateHtml(generateManager, generateEngineer, generateIntern);
 
 
   fs.writeFile('index.html', htmlGenerator, (err) =>

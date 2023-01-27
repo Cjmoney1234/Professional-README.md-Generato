@@ -1,5 +1,5 @@
-function generateManagerCard (manager) {
-    const managerCard = 
+function addManager (manager) {
+    const generateManager = 
     `<div class="card-container">
         <div class="card-title-container">
             <h2 class="name">${manager.name}</h2>
@@ -13,11 +13,11 @@ function generateManagerCard (manager) {
             </div>
         </div>
     </div>`
-return managerCard
+return generateManager
 }
 
-function generateEngineerCards (engineers) {
-    let engineerCards = ``
+function addEngineer (engineers) {
+    let generateEngineer = ``
     for(let i = 0; i < engineers.length; i++) {
         let engineer = engineers[i]
         let card = 
@@ -34,14 +34,14 @@ function generateEngineerCards (engineers) {
                 </div>
             </div>
         </div>`
-    engineerCards += card
+    generateEngineer += card
     }
-    return engineerCards
+    return generateEngineer
 }
 
 
-function generateInternCards (interns) {
-    let internCards = ``
+function addIntern (interns) {
+    let generateIntern = ``
     for(let i = 0; i < interns.length; i++) {
         let intern = interns[i]
         let card = 
@@ -59,10 +59,10 @@ function generateInternCards (interns) {
             </div>
         </div>`
 
-    internCards += card
+    generateIntern += card
     }
-    return internCards
+    return generateIntern
 }
 
 
-module.exports = { generateManagerCard, generateEngineerCards, generateInternCards }
+module.exports = { addManager, addEngineer, addIntern }

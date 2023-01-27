@@ -1,4 +1,4 @@
-function generateHtml(managerCard, engineerCards, internCards) {
+function generateHtml(generateManager, generateEngineer, generateIntern) {
     const htmlTemplate = 
     `<!DOCTYPE html>
     <html lang="en">
@@ -16,11 +16,12 @@ function generateHtml(managerCard, engineerCards, internCards) {
         </header>
 
         <main>
-            ${managerCard}
+        
+            ${generateManager}
 
-            ${engineerCards}
+            ${generateEngineer}
 
-            ${internCards}
+            ${generateIntern}
         </main>
 
     </body>
