@@ -1,5 +1,8 @@
 # Professional-README.md-Generato
 
+  ## Live Video
+[![Watch the video](./assets/Screenshot%202023-01-26%20214849.png)](https://www.youtube.com/watch?v=0POGRAjQM7A)
+
 ## Acceptance Criteria
 
 ```md
@@ -22,5 +25,4 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 ```
 
-  ## Live Video
-[![Watch the video](../Professional-README.md-Generato/assets/Screenshot%202023-01-26%20214849.png)](https://www.youtube.com/watch?v=0POGRAjQM7A)
+
