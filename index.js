@@ -2,13 +2,13 @@ const inquirer = require('inquirer');
 inquirer.registerPrompt("loop", require("inquirer-loop")(inquirer));
 const fs = require('fs');
 
-const questions = require('./questions');
+const questions = require('./template/questions');
 
 const Manager = require('./positions/manager');
 const Engineer = require('./positions/engineer');
 const Intern = require('./positions/intern');
 
-const { generateManagerCard, generateEngineerCards, generateInternCards } = require("./template/cards");
+const { addManager, addEngineer, addIntern } = require("./template/cards");
 const generateHtml = require('./template/html')
 
 inquirer.prompt(questions)
@@ -23,15 +23,15 @@ inquirer.prompt(questions)
       if (newEmployee.type === "Engineer") {
           const engineer = new Engineer(newEmployee.name, newEmployee.id, newEmployee.email, newEmployee.github)
           engineers.push(engineer)
-      } else if (e.type === "Intern") {
+      } else if (newEmployee.type === "Intern") {
           const intern = new Intern(newEmployee.name, newEmployee.id, newEmployee.email, newEmployee.school)
           interns.push(intern)
       }
   }
 
-  const managerCard = generateManagerCard(manager);
-  const engineerCards = generateEngineerCards(engineers);
-  const internCards = generateInternCards(interns);
+  const managerCard = addManager(manager);
+  const engineerCards = addEngineer(engineers);
+  const internCards = addIntern(interns);
   const htmlGenerator = generateHtml(managerCard, engineerCards, internCards);
 
 
